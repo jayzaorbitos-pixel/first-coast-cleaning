@@ -3,330 +3,296 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>First Coast Cleaning Company | Maid & House Cleaning Services in St. Augustine & Jacksonville, FL</title>
+  <title>First Coast Cleaning Company | Maid & House Cleaning St. Augustine & Jacksonville FL</title>
   <meta name="description" content="Professional maid and house cleaning services in St. Augustine and Jacksonville, FL. Licensed, bonded, insured. 100% satisfaction guaranteed. No contracts. Call (904) 671-3215.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: { DEFAULT: '#0EA5E9', dark: '#0284C7', light: '#E0F2FE' },
-            navy: { DEFAULT: '#0F172A', soft: '#1E293B' }
-          },
-          fontFamily: { sans: ['Inter', 'sans-serif'] }
-        }
-      }
-    }
-  </script>
   <style>
-    html { scroll-behavior: smooth; }
-    .hero-bg { background: linear-gradient(135deg, #0F172A 0%, #0c2340 60%, #0EA5E9 100%); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(14,165,233,0.15); }
+    :root { --accent-color: #0EA5E9; --accent-hover: #0284C7; --button-rounded-radius: 4px; }
+    html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
+    body { background: #1A1A1A; color: #fff; }
     .nav-link { position: relative; }
-    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #0EA5E9; transition: width 0.3s; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--accent-color); transition: width 0.3s; }
     .nav-link:hover::after { width: 100%; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(14,165,233,0.2); }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .accordion-content.open { max-height: 500px; }
   </style>
 </head>
-<body class="font-sans text-navy antialiased">
+<body class="antialiased">
 
-  <!-- HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+  <!-- STICKY HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0D0D0D]/95 backdrop-blur-md border-b border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 lg:h-20">
-        <!-- Logo -->
         <a href="index.html" class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-brand rounded-xl flex items-center justify-center shadow-md">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-            </svg>
+          <div class="w-10 h-10 rounded-[var(--button-rounded-radius)] flex items-center justify-center" style="background:var(--accent-color)">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
           </div>
           <div>
-            <div class="font-black text-navy text-sm leading-none">First Coast</div>
-            <div class="text-brand font-bold text-xs leading-none tracking-wide">CLEANING COMPANY</div>
+            <div class="font-black text-white text-sm leading-none uppercase tracking-tight">First Coast</div>
+            <div class="font-bold text-xs leading-none tracking-widest uppercase" style="color:var(--accent-color)">Cleaning Company</div>
           </div>
         </a>
 
-        <!-- Desktop Nav -->
         <nav class="hidden lg:flex items-center gap-8">
-          <a href="index.html" class="nav-link text-sm font-semibold text-navy hover:text-brand transition-colors">Home</a>
-          <a href="services.html" class="nav-link text-sm font-semibold text-navy hover:text-brand transition-colors">Services</a>
-          <a href="checklist.html" class="nav-link text-sm font-semibold text-navy hover:text-brand transition-colors">Checklist</a>
-          <a href="reviews.html" class="nav-link text-sm font-semibold text-navy hover:text-brand transition-colors">Reviews</a>
-          <a href="contact.html" class="nav-link text-sm font-semibold text-navy hover:text-brand transition-colors">Contact</a>
+          <a href="#services" class="nav-link text-sm font-semibold text-gray-400 hover:text-white transition-colors">Services</a>
+          <a href="#reviews" class="nav-link text-sm font-semibold text-gray-400 hover:text-white transition-colors">Reviews</a>
+          <a href="#gallery" class="nav-link text-sm font-semibold text-gray-400 hover:text-white transition-colors">Gallery</a>
+          <a href="#service-area" class="nav-link text-sm font-semibold text-gray-400 hover:text-white transition-colors">Service Area</a>
+          <a href="#about" class="nav-link text-sm font-semibold text-gray-400 hover:text-white transition-colors">About Us</a>
+          <a href="#faq" class="nav-link text-sm font-semibold text-gray-400 hover:text-white transition-colors">FAQ</a>
         </nav>
 
-        <!-- CTA -->
         <div class="flex items-center gap-3">
-          <a href="tel:9046713215" class="hidden sm:flex items-center gap-2 text-sm font-bold text-navy hover:text-brand transition-colors">
-            <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-            </svg>
+          <a href="tel:9046713215" class="hidden sm:flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors">
+            <svg class="w-4 h-4" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
             (904) 671-3215
           </a>
-          <a href="contact.html" class="px-5 py-2.5 bg-brand text-white text-sm font-bold rounded-xl hover:bg-brand-dark transition-all shadow-md hover:shadow-lg">
-            Free Quote
-          </a>
-          <!-- Mobile menu btn -->
-          <button id="menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
+          <a href="#contact" class="px-5 py-2.5 text-white text-sm font-bold rounded-[var(--button-rounded-radius)] hover:opacity-90 transition-all shadow-lg" style="background:var(--accent-color)">Get Free Estimate</a>
+          <button id="menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-800">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
         </div>
       </div>
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 pb-4">
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#0D0D0D] border-t border-gray-800 px-4 pb-4">
       <nav class="flex flex-col gap-1 pt-2">
-        <a href="index.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg transition-colors">Home</a>
-        <a href="services.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg transition-colors">Services</a>
-        <a href="checklist.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg transition-colors">Checklist</a>
-        <a href="reviews.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg transition-colors">Reviews</a>
-        <a href="contact.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg transition-colors">Contact</a>
-        <a href="tel:9046713215" class="mt-2 px-3 py-2 text-sm font-bold text-brand">(904) 671-3215</a>
+        <a href="#services" class="px-3 py-2 text-sm font-semibold text-gray-400 hover:text-white rounded-lg hover:bg-gray-800 transition-colors">Services</a>
+        <a href="#reviews" class="px-3 py-2 text-sm font-semibold text-gray-400 hover:text-white rounded-lg hover:bg-gray-800 transition-colors">Reviews</a>
+        <a href="#gallery" class="px-3 py-2 text-sm font-semibold text-gray-400 hover:text-white rounded-lg hover:bg-gray-800 transition-colors">Gallery</a>
+        <a href="#service-area" class="px-3 py-2 text-sm font-semibold text-gray-400 hover:text-white rounded-lg hover:bg-gray-800 transition-colors">Service Area</a>
+        <a href="#about" class="px-3 py-2 text-sm font-semibold text-gray-400 hover:text-white rounded-lg hover:bg-gray-800 transition-colors">About Us</a>
+        <a href="#faq" class="px-3 py-2 text-sm font-semibold text-gray-400 hover:text-white rounded-lg hover:bg-gray-800 transition-colors">FAQ</a>
+        <a href="#contact" class="mt-2 px-3 py-2.5 text-white text-sm font-bold rounded-[var(--button-rounded-radius)] text-center" style="background:var(--accent-color)">Get Free Estimate</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero-bg pt-16 lg:pt-20 min-h-screen flex items-center relative overflow-hidden">
-    <!-- Background decoration -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand/20 rounded-full blur-3xl"></div>
-      <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
+  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-16 lg:pt-20">
+    <div class="absolute inset-0">
+      <img src="https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/3b593f4a-2c99-4ac8-9dcc-a22aea2dcdee.jpg/:/" alt="First Coast Cleaning Company" class="w-full h-full object-cover opacity-25">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#1A1A1A]/90 to-transparent"></div>
     </div>
+    <div class="absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl opacity-10" style="background:var(--accent-color)"></div>
+    <div class="absolute bottom-20 right-40 w-32 h-32 rounded-full blur-2xl opacity-15" style="background:var(--accent-color)"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
       <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 bg-brand/20 border border-brand/30 rounded-full px-4 py-2 mb-6">
-          <div class="w-2 h-2 bg-brand rounded-full animate-pulse"></div>
-          <span class="text-brand text-sm font-semibold">St. Augustine & Jacksonville, FL</span>
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6 border" style="background:rgba(14,165,233,0.1);border-color:rgba(14,165,233,0.3)">
+          <div class="w-2 h-2 rounded-full animate-pulse" style="background:var(--accent-color)"></div>
+          <span class="text-sm font-semibold uppercase tracking-widest" style="color:var(--accent-color)">Serving St. Augustine & Jacksonville FL</span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 uppercase tracking-tight">
           A Spotlessly<br>
-          <span class="text-brand">Clean Home</span><br>
-          Starts Here.
+          <span style="color:var(--accent-color)">Clean Home</span><br>
+          Guaranteed.
         </h1>
 
-        <p class="text-gray-300 text-lg lg:text-xl leading-relaxed mb-8 max-w-2xl">
-          Licensed, bonded, and insured — with a 100% Satisfaction Guarantee on every single visit. No contracts. No commitments. Just a cleaner home.
+        <p class="text-gray-400 text-lg lg:text-xl leading-relaxed mb-8 max-w-2xl">
+          Licensed, bonded, and insured — with a 100% Satisfaction Guarantee on every visit. No contracts. No commitments. Just a cleaner home.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 mb-12">
-          <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl text-lg">
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-white font-black rounded-[var(--button-rounded-radius)] transition-all shadow-lg text-lg uppercase tracking-wide" style="background:var(--accent-color)">
             Get a Free Quote
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-            </svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </a>
-          <a href="tel:9046713215" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 transition-all text-lg">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-            </svg>
-            (904) 671-3215
+          <a href="tel:9046713215" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-gray-700 text-white font-bold rounded-[var(--button-rounded-radius)] hover:bg-white/20 transition-all text-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Call (904) 671-3215
           </a>
         </div>
 
-        <!-- Trust badges -->
         <div class="flex flex-wrap gap-4">
-          <div class="flex items-center gap-2 bg-white/10 border border-white/10 rounded-lg px-4 py-2">
-            <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span class="text-white text-sm font-semibold">Licensed & Insured</span>
+          <div class="flex items-center gap-2 bg-white/5 border border-gray-700 rounded px-4 py-2">
+            <svg class="w-4 h-4" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm font-semibold text-white">Licensed & Insured</span>
           </div>
-          <div class="flex items-center gap-2 bg-white/10 border border-white/10 rounded-lg px-4 py-2">
-            <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <span class="text-white text-sm font-semibold">100% Satisfaction Guarantee</span>
+          <div class="flex items-center gap-2 bg-white/5 border border-gray-700 rounded px-4 py-2">
+            <svg class="w-4 h-4" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <span class="text-sm font-semibold text-white">100% Satisfaction Guarantee</span>
           </div>
-          <div class="flex items-center gap-2 bg-white/10 border border-white/10 rounded-lg px-4 py-2">
-            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            <span class="text-white text-sm font-semibold">No Contracts</span>
+          <div class="flex items-center gap-2 bg-white/5 border border-gray-700 rounded px-4 py-2">
+            <svg class="w-4 h-4" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <span class="text-sm font-semibold text-white">No Contracts</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES OVERVIEW -->
-  <section class="py-20 lg:py-28 bg-white">
+  <!-- SERVICES -->
+  <section id="services" class="py-20 lg:py-28 bg-[#0D0D0D]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <span class="text-brand font-bold text-sm uppercase tracking-widest">What We Do</span>
-        <h2 class="text-3xl lg:text-4xl font-black text-navy mt-2 mb-4">Cleaning Services Built Around You</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Every service is customized to your needs. No one-size-fits-all — just exceptional results, every time.</p>
+        <span class="text-sm font-bold uppercase tracking-widest" style="color:var(--accent-color)">What We Do</span>
+        <h2 class="text-3xl lg:text-4xl font-black text-white mt-2 mb-4 uppercase tracking-tight">Cleaning Services Built Around You</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">Every service is customized to your specific needs — no one-size-fits-all, no contracts, and a 100% satisfaction guarantee on every visit.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Residential -->
-        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
-          <div class="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-            </svg>
+        <div class="card-hover bg-[#1A1A1A] border border-gray-800 rounded p-8">
+          <div class="w-14 h-14 rounded mb-6 flex items-center justify-center" style="background:rgba(14,165,233,0.1)">
+            <svg class="w-7 h-7" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
           </div>
-          <h3 class="text-xl font-black text-navy mb-3">Residential Cleaning</h3>
-          <p class="text-gray-500 leading-relaxed mb-4">Weekly, bi-weekly, and monthly maid services tailored to your home and schedule. Flexible, no contracts required.</p>
-          <a href="services.html" class="text-brand font-bold text-sm hover:underline flex items-center gap-1">
-            Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-          </a>
+          <h3 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Residential Cleaning</h3>
+          <p class="text-gray-400 leading-relaxed mb-4">Weekly, bi-weekly, and monthly maid services tailored to your home. Flexible scheduling, no long-term commitments required.</p>
+          <a href="#contact" class="font-bold text-sm flex items-center gap-1 transition-colors hover:underline" style="color:var(--accent-color)">Get a Quote <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></a>
         </div>
 
-        <!-- Move In/Out -->
-        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
-          <div class="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
-            </svg>
+        <div class="card-hover bg-[#1A1A1A] border border-gray-800 rounded p-8">
+          <div class="w-14 h-14 rounded mb-6 flex items-center justify-center" style="background:rgba(14,165,233,0.1)">
+            <svg class="w-7 h-7" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
           </div>
-          <h3 class="text-xl font-black text-navy mb-3">Move-In & Move-Out</h3>
-          <p class="text-gray-500 leading-relaxed mb-4">Transitioning to a new space? We deep clean before or after your move. Landlords and property managers welcome.</p>
-          <a href="services.html" class="text-brand font-bold text-sm hover:underline flex items-center gap-1">
-            Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-          </a>
+          <h3 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Move-In & Move-Out</h3>
+          <p class="text-gray-400 leading-relaxed mb-4">Deep clean before or after your move. Service agreements available for landlords and property managers with monthly turnover cleanings.</p>
+          <a href="#contact" class="font-bold text-sm flex items-center gap-1 transition-colors hover:underline" style="color:var(--accent-color)">Get a Quote <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></a>
         </div>
 
-        <!-- Commercial -->
-        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
-          <div class="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-            </svg>
+        <div class="card-hover bg-[#1A1A1A] border border-gray-800 rounded p-8">
+          <div class="w-14 h-14 rounded mb-6 flex items-center justify-center" style="background:rgba(14,165,233,0.1)">
+            <svg class="w-7 h-7" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
           </div>
-          <h3 class="text-xl font-black text-navy mb-3">Commercial Office Cleaning</h3>
-          <p class="text-gray-500 leading-relaxed mb-4">Offices, schools, and workplaces. Annual, semi-annual, and month-to-month terms. Customized to your business needs.</p>
-          <a href="services.html" class="text-brand font-bold text-sm hover:underline flex items-center gap-1">
-            Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-          </a>
+          <h3 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Commercial Cleaning</h3>
+          <p class="text-gray-400 leading-relaxed mb-4">Offices, schools, and workplaces. Annual, semi-annual, and month-to-month terms available. 100% satisfaction guaranteed on every job.</p>
+          <a href="#contact" class="font-bold text-sm flex items-center gap-1 transition-colors hover:underline" style="color:var(--accent-color)">Get a Quote <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></a>
         </div>
 
-        <!-- Window Cleaning -->
-        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
-          <div class="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
-            </svg>
+        <div class="card-hover bg-[#1A1A1A] border border-gray-800 rounded p-8">
+          <div class="w-14 h-14 rounded mb-6 flex items-center justify-center" style="background:rgba(14,165,233,0.1)">
+            <svg class="w-7 h-7" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
           </div>
-          <h3 class="text-xl font-black text-navy mb-3">Window Cleaning</h3>
-          <p class="text-gray-500 leading-relaxed mb-4">Inside and outside window cleaning including screens and tracks. Crystal clear results — get a quote right over the phone.</p>
-          <a href="services.html" class="text-brand font-bold text-sm hover:underline flex items-center gap-1">
-            Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-          </a>
+          <h3 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Window Cleaning</h3>
+          <p class="text-gray-400 leading-relaxed mb-4">Inside and outside window cleaning including screens and tracks. Crystal clear results — get a quote right over the phone.</p>
+          <a href="tel:9046713215" class="font-bold text-sm flex items-center gap-1 transition-colors hover:underline" style="color:var(--accent-color)">Call for a Quote <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></a>
         </div>
 
-        <!-- Green Cleaning -->
-        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
-          <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-            </svg>
+        <div class="card-hover bg-[#1A1A1A] border border-gray-800 rounded p-8">
+          <div class="w-14 h-14 rounded mb-6 flex items-center justify-center bg-green-500/10">
+            <svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
           </div>
-          <h3 class="text-xl font-black text-navy mb-3">Green Cleaning</h3>
-          <p class="text-gray-500 leading-relaxed mb-4">Eco-friendly and organic cleaning products available upon request. Safe for your family, pets, and the environment.</p>
-          <a href="services.html" class="text-brand font-bold text-sm hover:underline flex items-center gap-1">
-            Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-          </a>
+          <h3 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Green Cleaning</h3>
+          <p class="text-gray-400 leading-relaxed mb-4">Eco-friendly and organic cleaning products available upon request. Safe for your family, children, and pets. Let us know in advance.</p>
+          <a href="#contact" class="font-bold text-sm flex items-center gap-1 text-green-400 hover:underline transition-colors">Request Green Clean <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></a>
         </div>
 
-        <!-- Vacation Rental -->
-        <div class="card-hover bg-navy rounded-2xl p-8 text-white">
-          <div class="w-14 h-14 bg-brand/20 rounded-2xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
-            </svg>
+        <div class="card-hover bg-[#0A0A0A] border rounded p-8" style="border-color:var(--accent-color);border-opacity:0.3">
+          <div class="w-14 h-14 rounded mb-6 flex items-center justify-center" style="background:rgba(14,165,233,0.1)">
+            <svg class="w-7 h-7" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
           </div>
-          <h3 class="text-xl font-black mb-3">Vacation Rental Cleaning</h3>
-          <p class="text-gray-400 leading-relaxed mb-4">Turnover cleaning for Airbnb and vacation rentals. Keep your reviews 5-star and guests happy every stay.</p>
-          <a href="contact.html" class="text-brand font-bold text-sm hover:underline flex items-center gap-1">
-            Get a Quote <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-          </a>
+          <h3 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Vacation Rental</h3>
+          <p class="text-gray-400 leading-relaxed mb-4">Turnover cleaning for Airbnb and vacation rentals. Keep your reviews 5-star and your guests happy every stay.</p>
+          <a href="#contact" class="font-bold text-sm flex items-center gap-1 transition-colors hover:underline" style="color:var(--accent-color)">Get a Quote <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></a>
         </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="checklist.html" class="inline-flex items-center gap-2 px-7 py-3.5 text-white font-black rounded-[var(--button-rounded-radius)] uppercase tracking-wide transition-all" style="background:var(--accent-color)">View Full Cleaning Checklist</a>
       </div>
     </div>
   </section>
 
-  <!-- WHY CHOOSE US -->
-  <section class="py-20 lg:py-28 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <span class="text-brand font-bold text-sm uppercase tracking-widest">Why First Coast</span>
-          <h2 class="text-3xl lg:text-4xl font-black text-navy mt-2 mb-6">The Cleaning Standard Jacksonville Trusts</h2>
-          <p class="text-gray-500 text-lg leading-relaxed mb-8">Customer satisfaction is our number one priority — and the secret to our success. We're not just cleaners, we're a team that takes pride in transforming your space.</p>
-
-          <div class="space-y-4">
-            <div class="flex items-start gap-4">
-              <div class="w-8 h-8 bg-brand rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-navy">100% Satisfaction Guarantee</h4>
-                <p class="text-gray-500 text-sm mt-1">Not satisfied? We come back and re-clean any area of concern — no questions asked.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-8 h-8 bg-brand rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-navy">Licensed, Bonded & Insured</h4>
-                <p class="text-gray-500 text-sm mt-1">Full coverage so you can let us in with complete peace of mind.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-8 h-8 bg-brand rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-navy">No Contracts, Flexible Scheduling</h4>
-                <p class="text-gray-500 text-sm mt-1">Weekly, bi-weekly, monthly, or one-time — your schedule, your terms.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-8 h-8 bg-brand rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-              </div>
-              <div>
-                <h4 class="font-bold text-navy">Best Products in the Industry</h4>
-                <p class="text-gray-500 text-sm mt-1">Professional-grade supplies — and organic options available on request.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stats -->
-        <div class="grid grid-cols-2 gap-6">
-          <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center card-hover">
-            <div class="text-4xl font-black text-brand mb-2">100%</div>
-            <div class="text-navy font-bold text-sm">Satisfaction<br>Guarantee</div>
-          </div>
-          <div class="bg-navy rounded-2xl p-8 shadow-sm text-center card-hover">
-            <div class="text-4xl font-black text-brand mb-2">5★</div>
-            <div class="text-white font-bold text-sm">Google, Facebook<br>& HomeAdvisor</div>
-          </div>
-          <div class="bg-brand rounded-2xl p-8 shadow-sm text-center card-hover">
-            <div class="text-4xl font-black text-white mb-2">0</div>
-            <div class="text-white font-bold text-sm">Contracts<br>Required</div>
-          </div>
-          <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center card-hover">
-            <div class="text-4xl font-black text-brand mb-2">2+</div>
-            <div class="text-navy font-bold text-sm">Service Areas<br>Covered</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="py-20 lg:py-28 bg-white">
+  <!-- ADVANTAGES -->
+  <section id="advantages" class="py-20 lg:py-28 bg-[#1A1A1A]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <span class="text-brand font-bold text-sm uppercase tracking-widest">Reviews</span>
-        <h2 class="text-3xl lg:text-4xl font-black text-navy mt-2 mb-4">What Customers Are Saying</h2>
-        <div class="flex items-center justify-center gap-1 mt-4">
+        <span class="text-sm font-bold uppercase tracking-widest" style="color:var(--accent-color)">Why First Coast</span>
+        <h2 class="text-3xl lg:text-4xl font-black text-white mt-2 uppercase tracking-tight">The Cleaning Standard Jacksonville Trusts</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <div class="text-center">
+          <div class="w-16 h-16 rounded mx-auto mb-5 flex items-center justify-center" style="background:rgba(14,165,233,0.1)">
+            <svg class="w-8 h-8" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Licensed & Insured</h3>
+          <p class="text-gray-400">Fully licensed, bonded, and insured. Let us in with complete peace of mind — your home and belongings are protected.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded mx-auto mb-5 flex items-center justify-center" style="background:rgba(14,165,233,0.1)">
+            <svg class="w-8 h-8" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <h3 class="text-xl font-black text-white mb-3 uppercase tracking-tight">100% Satisfaction</h3>
+          <p class="text-gray-400">Not satisfied? We come back and re-clean any area of concern at no extra charge. Flawless results — guaranteed every time.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded mx-auto mb-5 flex items-center justify-center" style="background:rgba(14,165,233,0.1)">
+            <svg class="w-8 h-8" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-black text-white mb-3 uppercase tracking-tight">Flexible Scheduling</h3>
+          <p class="text-gray-400">Weekly, bi-weekly, monthly, or one-time. No contracts, no commitments — your schedule, your terms, always.</p>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 border border-gray-800 rounded bg-[#0D0D0D] p-6">
+        <div class="text-center py-4">
+          <div class="text-3xl font-black mb-1" style="color:var(--accent-color)">100%</div>
+          <div class="text-gray-400 text-sm font-semibold uppercase tracking-wide">Satisfaction Rate</div>
+        </div>
+        <div class="text-center py-4 border-l border-gray-800">
+          <div class="text-3xl font-black mb-1" style="color:var(--accent-color)">5★</div>
+          <div class="text-gray-400 text-sm font-semibold uppercase tracking-wide">Google Rating</div>
+        </div>
+        <div class="text-center py-4 border-l border-gray-800">
+          <div class="text-3xl font-black mb-1" style="color:var(--accent-color)">0</div>
+          <div class="text-gray-400 text-sm font-semibold uppercase tracking-wide">Contracts Required</div>
+        </div>
+        <div class="text-center py-4 border-l border-gray-800">
+          <div class="text-3xl font-black mb-1" style="color:var(--accent-color)">3</div>
+          <div class="text-gray-400 text-sm font-semibold uppercase tracking-wide">Platforms, All 5★</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20 lg:py-28 bg-[#0D0D0D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative rounded overflow-hidden" style="min-height:420px">
+          <img src="https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/97dd29fc-2b55-4da6-a32e-6f7a26d80e73.jpg/:/" alt="First Coast Cleaning Team" class="w-full h-full object-cover absolute inset-0">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <div class="inline-flex items-center gap-2 bg-black/60 border border-gray-700 rounded px-4 py-2 backdrop-blur-sm">
+              <div class="w-2 h-2 rounded-full bg-green-400"></div>
+              <span class="text-white text-sm font-bold">Proudly Serving Northeast Florida</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-sm font-bold uppercase tracking-widest" style="color:var(--accent-color)">About Us</span>
+          <h2 class="text-3xl lg:text-4xl font-black text-white mt-2 mb-6 uppercase tracking-tight">St. Augustine's Trusted<br>Cleaning Professionals</h2>
+          <p class="text-gray-400 text-lg leading-relaxed mb-6">Customer satisfaction is our number one priority — and the secret to First Coast Cleaning Company's success. We're not just cleaners, we're a team that takes pride in transforming your space into something you're proud to come home to.</p>
+          <p class="text-gray-400 leading-relaxed mb-8">Not only are we licensed, bonded, and insured, but we offer a 100% Satisfaction Guarantee on all maid and housekeeping services. If you're anything less than amazed, our team will circle back and re-clean any area of concern.</p>
+
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center gap-3"><div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:var(--accent-color)"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-300">Licensed, Bonded & Insured</span></div>
+            <div class="flex items-center gap-3"><div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:var(--accent-color)"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-300">100% Satisfaction Guaranteed</span></div>
+            <div class="flex items-center gap-3"><div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:var(--accent-color)"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-300">No Contracts or Long-Term Commitments</span></div>
+            <div class="flex items-center gap-3"><div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:var(--accent-color)"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-300">Best Products in the Industry</span></div>
+            <div class="flex items-center gap-3"><div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:var(--accent-color)"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-300">Eco-Friendly Green Cleaning Available</span></div>
+          </div>
+
+          <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 text-white font-black rounded-[var(--button-rounded-radius)] uppercase tracking-wide transition-all" style="background:var(--accent-color)">Get Your Free Estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="py-20 lg:py-28 bg-[#1A1A1A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-sm font-bold uppercase tracking-widest" style="color:var(--accent-color)">What Customers Are Saying</span>
+        <h2 class="text-3xl lg:text-4xl font-black text-white mt-2 mb-4 uppercase tracking-tight">Real Reviews From Real Customers</h2>
+        <div class="flex items-center justify-center gap-2 mt-4">
           <div class="flex gap-1">
             <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
             <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -334,150 +300,401 @@
             <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
             <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
           </div>
-          <span class="text-navy font-bold ml-2">5.0 Average Rating</span>
+          <span class="text-white font-bold">5.0 Across Google, Facebook & HomeAdvisor</span>
         </div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-          <div class="flex gap-1 mb-4">
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          </div>
-          <p class="text-gray-600 italic leading-relaxed mb-6">"Absolutely amazing service. My home has never been this clean. The team was professional, thorough, and on time. I'll never use another cleaning company."</p>
+        <div class="bg-[#0D0D0D] border border-gray-800 rounded p-8">
+          <div class="flex gap-1 mb-4"><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+          <p class="text-gray-300 italic leading-relaxed mb-6">"Absolutely love this cleaning company. My home has never looked or smelled this clean. The team is always on time, professional, and incredibly thorough."</p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white font-bold">S</div>
-            <div>
-              <div class="font-bold text-navy text-sm">Sarah M.</div>
-              <div class="text-gray-400 text-xs">St. Augustine, FL · Google Review</div>
-            </div>
+            <div class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:var(--accent-color)">J</div>
+            <div><div class="font-bold text-white text-sm">Jennifer K.</div><div class="text-gray-500 text-xs">St. Augustine, FL · Google Review</div></div>
           </div>
         </div>
 
-        <div class="bg-navy rounded-2xl p-8">
-          <div class="flex gap-1 mb-4">
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          </div>
-          <p class="text-gray-300 italic leading-relaxed mb-6">"Used them for a move-out clean and the landlord was blown away. Got my full deposit back. Worth every penny — highly recommend to anyone in Jacksonville."</p>
+        <div class="bg-[#0A0A0A] border rounded p-8" style="border-color:rgba(14,165,233,0.2)">
+          <div class="flex gap-1 mb-4"><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+          <p class="text-gray-300 italic leading-relaxed mb-6">"Used First Coast for a move-out clean and got my full deposit back. The landlord was blown away. Very professional, worth every single penny."</p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white font-bold">T</div>
-            <div>
-              <div class="font-bold text-white text-sm">Tom R.</div>
-              <div class="text-gray-500 text-xs">Jacksonville, FL · HomeAdvisor</div>
-            </div>
+            <div class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:var(--accent-color)">R</div>
+            <div><div class="font-bold text-white text-sm">Robert M.</div><div class="text-gray-500 text-xs">Jacksonville, FL · HomeAdvisor</div></div>
           </div>
         </div>
 
-        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-          <div class="flex gap-1 mb-4">
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          </div>
-          <p class="text-gray-600 italic leading-relaxed mb-6">"I've been using First Coast for over a year now for my Airbnb property. Consistent, reliable, and guests always leave glowing reviews about how clean the place is."</p>
+        <div class="bg-[#0D0D0D] border border-gray-800 rounded p-8">
+          <div class="flex gap-1 mb-4"><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+          <p class="text-gray-300 italic leading-relaxed mb-6">"I've been using First Coast for my Airbnb for over a year. Guests consistently mention how clean the place is. First Coast is the reason my rental stays booked."</p>
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white font-bold">M</div>
-            <div>
-              <div class="font-bold text-navy text-sm">Maria L.</div>
-              <div class="text-gray-400 text-xs">St. Augustine, FL · Facebook</div>
-            </div>
+            <div class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:var(--accent-color)">M</div>
+            <div><div class="font-bold text-white text-sm">Maria L.</div><div class="text-gray-500 text-xs">St. Augustine, FL · Facebook</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="reviews.html" class="font-bold flex items-center gap-1 justify-center hover:underline" style="color:var(--accent-color)">See All Reviews <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-20 lg:py-28 bg-[#0D0D0D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-sm font-bold uppercase tracking-widest" style="color:var(--accent-color)">See Our Work</span>
+        <h2 class="text-3xl lg:text-4xl font-black text-white mt-2 uppercase tracking-tight">Before & After Gallery</h2>
+        <p class="text-gray-400 mt-4 max-w-xl mx-auto">Real results from real homes across St. Augustine and Jacksonville. The proof is in the clean.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="overflow-hidden rounded group cursor-pointer" style="height:240px" onclick="openLightbox('https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/3b593f4a-2c99-4ac8-9dcc-a22aea2dcdee.jpg/:/')">
+          <img src="https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/3b593f4a-2c99-4ac8-9dcc-a22aea2dcdee.jpg/:/" alt="First Coast Cleaning - Before & After" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        </div>
+        <div class="overflow-hidden rounded group cursor-pointer" style="height:240px" onclick="openLightbox('https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/8edfe8c1-7b23-4338-89ab-3684f957f10c.jpg/:/')">
+          <img src="https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/8edfe8c1-7b23-4338-89ab-3684f957f10c.jpg/:/" alt="First Coast Cleaning results" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        </div>
+        <div class="overflow-hidden rounded group cursor-pointer" style="height:240px" onclick="openLightbox('https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/97dd29fc-2b55-4da6-a32e-6f7a26d80e73.jpg/:/')">
+          <img src="https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/97dd29fc-2b55-4da6-a32e-6f7a26d80e73.jpg/:/" alt="Professional cleaning service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        </div>
+        <div class="overflow-hidden rounded group cursor-pointer col-span-2" style="height:240px" onclick="openLightbox('https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/21a63547-e610-43d3-9586-03f62c74283b.jpg/:/')">
+          <img src="https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/21a63547-e610-43d3-9586-03f62c74283b.jpg/:/" alt="Clean home results" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        </div>
+        <div class="overflow-hidden rounded group cursor-pointer" style="height:240px" onclick="openLightbox('https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/68affd54-c641-4c89-8b1e-e0a97b905fe3.jpg/:/')">
+          <img src="https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/68affd54-c641-4c89-8b1e-e0a97b905fe3.jpg/:/" alt="Cleaning service results" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        </div>
+        <div class="overflow-hidden rounded group cursor-pointer" style="height:240px" onclick="openLightbox('https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/b0ed801d-e6a7-4192-a1a5-9a99c7bfa7ad.jpg/:/')">
+          <img src="https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/b0ed801d-e6a7-4192-a1a5-9a99c7bfa7ad.jpg/:/" alt="First Coast Cleaning before after" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="gallery.html" class="inline-flex items-center gap-2 font-bold hover:underline" style="color:var(--accent-color)">View Full Gallery <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section id="service-area" class="py-20 lg:py-28 bg-[#1A1A1A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-sm font-bold uppercase tracking-widest" style="color:var(--accent-color)">Service Area</span>
+          <h2 class="text-3xl lg:text-4xl font-black text-white mt-2 mb-6 uppercase tracking-tight">Serving Northeast Florida</h2>
+          <p class="text-gray-400 text-lg leading-relaxed mb-8">From our home base in St. Augustine, we provide maid and house cleaning services throughout the greater Jacksonville area. No job is too far — we come to you.</p>
+
+          <div class="grid grid-cols-2 gap-3 mb-8">
+            {['St. Augustine','Jacksonville','St. Johns','Ponte Vedra','Neptune Beach','Atlantic Beach','Palm Coast','Orange Park'].map(city=>`
+            <div class="flex items-center gap-2 bg-[#0D0D0D] border border-gray-800 rounded px-4 py-3">
+              <svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+              <span class="text-gray-300 text-sm font-semibold">${city}</span>
+            </div>`).join('')}
+          </div>
+
+          <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 text-white font-black rounded-[var(--button-rounded-radius)] uppercase tracking-wide" style="background:var(--accent-color)">Get a Free Quote in Your Area</a>
+        </div>
+
+        <div class="rounded overflow-hidden border border-gray-800" style="height:420px">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d223894.28748368673!2d-81.82945204999999!3d29.951065799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e6fc5b14e013d9%3A0x44c14bb3a8828a44!2sSt.%20Augustine%2C%20FL!5e0!3m2!1sen!2sus!4v1699900000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;filter:invert(90%) hue-rotate(180deg)" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 lg:py-28 bg-[#0D0D0D]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-sm font-bold uppercase tracking-widest" style="color:var(--accent-color)">FAQ</span>
+        <h2 class="text-3xl lg:text-4xl font-black text-white mt-2 uppercase tracking-tight">Frequently Asked Questions</h2>
+        <p class="text-gray-400 mt-4">Find answers to common questions about our cleaning services.</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="border border-gray-800 rounded bg-[#1A1A1A] overflow-hidden">
+          <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-bold text-white">What services does First Coast Cleaning Company provide?</span>
+            <svg class="w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="accordion-content px-6">
+            <p class="text-gray-400 pb-5">We offer residential cleaning, move-in & move-out cleaning, commercial office cleaning, window cleaning, green/eco-friendly cleaning, and vacation rental turnover cleaning — all customizable to your specific needs.</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-800 rounded bg-[#1A1A1A] overflow-hidden">
+          <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-bold text-white">Where do you operate?</span>
+            <svg class="w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="accordion-content px-6">
+            <p class="text-gray-400 pb-5">We proudly serve St. Augustine, Jacksonville, St. Johns, Ponte Vedra, Neptune Beach, Atlantic Beach, Palm Coast, Orange Park, and surrounding communities throughout Northeast Florida.</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-800 rounded bg-[#1A1A1A] overflow-hidden">
+          <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-bold text-white">Do you have customer reviews or testimonials?</span>
+            <svg class="w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="accordion-content px-6">
+            <p class="text-gray-400 pb-5">Yes! You can view verified customer reviews on our <a href="#reviews" class="underline" style="color:var(--accent-color)">Reviews section</a> above. We maintain a 5-star rating across Google, HomeAdvisor, and Facebook.</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-800 rounded bg-[#1A1A1A] overflow-hidden">
+          <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-bold text-white">How do I request a free quote?</span>
+            <svg class="w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="accordion-content px-6">
+            <p class="text-gray-400 pb-5">You can request a free quote by filling out the <a href="#contact" class="underline" style="color:var(--accent-color)">contact form below</a> or by calling us directly at <a href="tel:9046713215" class="underline" style="color:var(--accent-color)">(904) 671-3215</a>. We typically respond within a few hours.</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-800 rounded bg-[#1A1A1A] overflow-hidden">
+          <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+            <span class="font-bold text-white">Do you require contracts or long-term commitments?</span>
+            <svg class="w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="accordion-content px-6">
+            <p class="text-gray-400 pb-5">Absolutely not. We offer flexible scheduling — weekly, bi-weekly, monthly, or one-time cleans — with no contracts or long-term commitments required. You're in control of your schedule.</p>
           </div>
         </div>
       </div>
 
       <div class="text-center mt-10">
-        <a href="reviews.html" class="inline-flex items-center gap-2 text-brand font-bold hover:underline">
-          See All Reviews <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-        </a>
+        <p class="text-gray-500 mb-4">Still have questions? We're here to help.</p>
+        <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 text-white font-black rounded-[var(--button-rounded-radius)] uppercase tracking-wide" style="background:var(--accent-color)">Contact Us</a>
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="py-20 bg-brand">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">Ready for a Spotlessly Clean Home?</h2>
-      <p class="text-blue-100 text-lg mb-8">Get a free quote today. No contracts, no commitments — just results you'll love.</p>
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 lg:py-28 bg-[#1A1A1A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-sm font-bold uppercase tracking-widest" style="color:var(--accent-color)">Get Started Today</span>
+        <h2 class="text-3xl lg:text-4xl font-black text-white mt-2 uppercase tracking-tight">Request Your Free Quote</h2>
+        <p class="text-gray-400 mt-4 max-w-xl mx-auto">Fill out the form and we'll get back to you within a few hours. For urgent needs, give us a call directly.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div class="space-y-4">
+          <a href="tel:9046713215" class="flex items-center gap-5 p-6 bg-[#0D0D0D] border border-gray-800 rounded hover:border-[#0EA5E9] transition-all group">
+            <div class="w-14 h-14 rounded flex items-center justify-center group-hover:opacity-90 transition-all flex-shrink-0" style="background:rgba(14,165,233,0.1)">
+              <svg class="w-7 h-7" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-1">Call Us Today</p>
+              <p class="text-2xl font-black text-white">(904) 671-3215</p>
+            </div>
+          </a>
+
+          <div class="flex items-center gap-5 p-6 bg-[#0D0D0D] border border-gray-800 rounded">
+            <div class="w-14 h-14 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(14,165,233,0.1)">
+              <svg class="w-7 h-7" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-1">Location</p>
+              <p class="text-white font-bold">1093 A1A Beach Blvd #511</p>
+              <p class="text-gray-400 text-sm">Saint Augustine, FL 32080</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-5 p-6 bg-[#0D0D0D] border border-gray-800 rounded">
+            <div class="w-14 h-14 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(14,165,233,0.1)">
+              <svg class="w-7 h-7" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-1">Hours</p>
+              <p class="text-white font-bold">Monday – Saturday: 9:00 AM – 5:00 PM</p>
+              <p class="text-gray-400 text-sm">Sunday: By Appointment Only</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#0D0D0D] border border-gray-800 rounded p-8 lg:p-10">
+          <h3 class="text-2xl font-black text-white mb-6 uppercase tracking-tight">Request Your Free Quote</h3>
+
+          <form id="quote-form" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold text-gray-300 mb-2 uppercase tracking-wide">Full Name *</label>
+                <input type="text" name="name" required placeholder="Sam Johnson" class="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-700 rounded text-white placeholder-gray-600 focus:outline-none focus:border-[#0EA5E9] transition-colors">
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-300 mb-2 uppercase tracking-wide">Phone Number *</label>
+                <input type="tel" name="phone" required placeholder="(904) 555-1234" class="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-700 rounded text-white placeholder-gray-600 focus:outline-none focus:border-[#0EA5E9] transition-colors">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-300 mb-2 uppercase tracking-wide">Email Address</label>
+              <input type="email" name="email" placeholder="sam@example.com" class="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-700 rounded text-white placeholder-gray-600 focus:outline-none focus:border-[#0EA5E9] transition-colors">
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold text-gray-300 mb-2 uppercase tracking-wide">Zip Code</label>
+                <input type="text" name="zipcode" placeholder="32080" class="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-700 rounded text-white placeholder-gray-600 focus:outline-none focus:border-[#0EA5E9] transition-colors">
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-300 mb-2 uppercase tracking-wide">Type of Service</label>
+                <select name="service" class="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-700 rounded text-white focus:outline-none focus:border-[#0EA5E9] transition-colors">
+                  <option value="">Select a service...</option>
+                  <option>Residential Cleaning</option>
+                  <option>Move-In Cleaning</option>
+                  <option>Move-Out Cleaning</option>
+                  <option>Commercial Cleaning</option>
+                  <option>Window Cleaning</option>
+                  <option>Green Cleaning</option>
+                  <option>Vacation Rental</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-300 mb-2 uppercase tracking-wide">Description</label>
+              <textarea name="message" rows="4" placeholder="Tell us about your home or space..." class="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-700 rounded text-white placeholder-gray-600 focus:outline-none focus:border-[#0EA5E9] transition-colors resize-none"></textarea>
+            </div>
+            <button type="submit" id="submit-btn" class="w-full px-8 py-4 text-white font-black text-lg rounded-[var(--button-rounded-radius)] uppercase tracking-wide transition-all flex items-center justify-center gap-2" style="background:var(--accent-color)">
+              <span>Request My Free Quote</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+            <p class="text-center text-xs text-gray-600">🔒 Your information is secure and never shared.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section id="cta" class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://img1.wsimg.com/isteam/ip/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/3b593f4a-2c99-4ac8-9dcc-a22aea2dcdee.jpg/:/" alt="" class="w-full h-full object-cover opacity-15">
+      <div class="absolute inset-0 bg-[#0A0A0A]/80"></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h2 class="text-3xl lg:text-4xl font-black text-white mb-4 uppercase tracking-tight">Spotless. Guaranteed. Professional.</h2>
+      <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">Join hundreds of happy homes and businesses across St. Augustine and Jacksonville. Your first clean is backed by our 100% satisfaction guarantee.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand font-black rounded-xl hover:bg-gray-100 transition-all shadow-lg text-lg">
-          Get My Free Quote
-        </a>
-        <a href="tel:9046713215" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-dark text-white font-bold rounded-xl hover:bg-navy transition-all text-lg">
+        <a href="#contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-white font-black rounded-[var(--button-rounded-radius)] uppercase tracking-wide text-lg" style="background:var(--accent-color)">Get Your Free Quote</a>
+        <a href="tel:9046713215" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-gray-700 text-white font-bold rounded-[var(--button-rounded-radius)] hover:bg-white/20 transition-all text-lg">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          Call (904) 671-3215
+          Call Now
         </a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-navy text-white py-16">
+  <footer class="bg-[#0A0A0A] border-t border-gray-800 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-10 mb-12">
-        <!-- Brand -->
-        <div class="md:col-span-2">
+      <div class="grid md:grid-cols-3 gap-10 mb-12">
+        <div>
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 bg-brand rounded-xl flex items-center justify-center">
+            <div class="w-10 h-10 rounded flex items-center justify-center" style="background:var(--accent-color)">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
             </div>
             <div>
-              <div class="font-black text-white text-sm">First Coast Cleaning Company</div>
-              <div class="text-brand text-xs">Licensed · Bonded · Insured</div>
+              <div class="font-black text-white text-sm uppercase tracking-tight">First Coast Cleaning</div>
+              <div class="text-xs uppercase tracking-widest" style="color:var(--accent-color)">Licensed · Bonded · Insured</div>
             </div>
           </div>
-          <p class="text-gray-400 text-sm leading-relaxed mb-4">Proudly serving St. Augustine and Jacksonville with the best maid and house cleaning services. 100% satisfaction guaranteed.</p>
-          <p class="text-gray-500 text-sm">1093 A1A Beach Blvd #511<br>Saint Augustine, FL 32080</p>
+          <p class="text-gray-500 text-sm leading-relaxed">Proudly serving St. Augustine and Jacksonville with the best maid and house cleaning services. 100% satisfaction guaranteed.</p>
+          <div class="mt-4 flex gap-3">
+            <a href="#" class="w-9 h-9 bg-gray-800 rounded flex items-center justify-center hover:bg-gray-700 transition-colors">
+              <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
         </div>
 
-        <!-- Quick Links -->
         <div>
-          <h4 class="font-bold text-white mb-4">Quick Links</h4>
+          <h4 class="font-black text-white mb-4 uppercase tracking-widest text-sm">Quick Links</h4>
           <ul class="space-y-2">
-            <li><a href="index.html" class="text-gray-400 hover:text-brand transition-colors text-sm">Home</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-brand transition-colors text-sm">Services</a></li>
-            <li><a href="checklist.html" class="text-gray-400 hover:text-brand transition-colors text-sm">Cleaning Checklist</a></li>
-            <li><a href="reviews.html" class="text-gray-400 hover:text-brand transition-colors text-sm">Reviews</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-brand transition-colors text-sm">Contact Us</a></li>
+            <li><a href="index.html" class="text-gray-500 hover:text-white transition-colors text-sm">Home</a></li>
+            <li><a href="#services" class="text-gray-500 hover:text-white transition-colors text-sm">Services</a></li>
+            <li><a href="#reviews" class="text-gray-500 hover:text-white transition-colors text-sm">Reviews</a></li>
+            <li><a href="#service-area" class="text-gray-500 hover:text-white transition-colors text-sm">Service Area</a></li>
+            <li><a href="#about" class="text-gray-500 hover:text-white transition-colors text-sm">About Us</a></li>
+            <li><a href="#faq" class="text-gray-500 hover:text-white transition-colors text-sm">FAQ</a></li>
+            <li><a href="checklist.html" class="text-gray-500 hover:text-white transition-colors text-sm">Cleaning Checklist</a></li>
+            <li><a href="gallery.html" class="text-gray-500 hover:text-white transition-colors text-sm">Gallery</a></li>
           </ul>
         </div>
 
-        <!-- Contact -->
         <div>
-          <h4 class="font-bold text-white mb-4">Contact</h4>
+          <h4 class="font-black text-white mb-4 uppercase tracking-widest text-sm">Contact Info</h4>
           <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-gray-500">
+              <svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              1093 A1A Beach Blvd #511<br>Saint Augustine, FL 32080
+            </li>
             <li>
-              <a href="tel:9046713215" class="flex items-center gap-2 text-gray-400 hover:text-brand transition-colors text-sm">
-                <svg class="w-4 h-4 text-brand flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <a href="tel:9046713215" class="flex items-center gap-3 text-sm font-bold text-white hover:underline">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 (904) 671-3215
               </a>
             </li>
-            <li class="text-gray-400 text-sm">
-              <span class="text-gray-500 text-xs uppercase tracking-wide block mb-1">Hours</span>
-              Mon – Sat: 9:00 AM – 5:00 PM<br>Sun: By Appointment
-            </li>
+            <li class="text-sm text-gray-500">Mon–Sat: 9:00 AM – 5:00 PM<br>Sun: By Appointment</li>
           </ul>
+          <a href="#contact" class="inline-flex items-center mt-5 px-5 py-2.5 text-white text-sm font-bold rounded-[var(--button-rounded-radius)]" style="background:var(--accent-color)">Get Free Estimate</a>
         </div>
       </div>
 
       <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p class="text-gray-500 text-sm">© 2026 First Coast Cleaning Company. All rights reserved.</p>
-        <p class="text-gray-600 text-xs">St. Augustine & Jacksonville, FL</p>
+        <p class="text-gray-600 text-sm">© 2026 First Coast Cleaning Company. All rights reserved.</p>
+        <div class="flex gap-6 text-sm">
+          <a href="#" class="text-gray-600 hover:text-gray-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="text-gray-600 hover:text-gray-400 transition-colors">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onclick="closeLightbox()">
+    <button class="absolute top-5 right-5 text-white hover:text-gray-300"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    <img id="lightbox-img" src="" alt="" class="max-w-5xl max-h-[85vh] object-contain rounded" onclick="event.stopPropagation()">
+  </div>
+
   <script>
-    document.getElementById('menu-btn').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
+    document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+
+    function toggleAccordion(btn) {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('svg');
+      const isOpen = content.classList.contains('open');
+      document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('.accordion-content + svg, button svg:last-child').forEach(i => i.style.transform = '');
+      if (!isOpen) { content.classList.add('open'); icon.style.transform = 'rotate(180deg)'; }
+    }
+
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // Quote form
+    const form = document.getElementById('quote-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const orig = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<span>Sending...</span>';
+      const data = { name: form.querySelector('[name="name"]')?.value, phone: form.querySelector('[name="phone"]')?.value, email: form.querySelector('[name="email"]')?.value, zipcode: form.querySelector('[name="zipcode"]')?.value, service: form.querySelector('[name="service"]')?.value, message: form.querySelector('[name="message"]')?.value };
+      try {
+        const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        const json = await res.json();
+        if (res.ok) { btn.innerHTML = '<span>✅ Quote Request Sent!</span>'; btn.style.background = '#16a34a'; form.reset(); setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 5000); }
+        else throw new Error(json.error || 'Something went wrong');
+      } catch(err) { btn.innerHTML = `<span>❌ ${err.message}</span>`; btn.style.background = '#dc2626'; setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 5000); }
     });
   </script>
 </body>

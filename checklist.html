@@ -7,156 +7,286 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{brand:{DEFAULT:'#0EA5E9',dark:'#0284C7',light:'#E0F2FE'},navy:{DEFAULT:'#0F172A',soft:'#1E293B'}},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
-  <style>html{scroll-behavior:smooth;}</style>
+  <style>
+    :root { --accent-color: #0EA5E9; --accent-hover: #0284C7; --button-rounded-radius: 4px; }
+    html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
+    body { background: #1A1A1A; color: #fff; }
+  </style>
 </head>
-<body class="font-sans text-navy antialiased">
+<body class="antialiased">
 
   <!-- HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0D0D0D]/95 backdrop-blur-md border-b border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 lg:h-20">
         <a href="index.html" class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-brand rounded-xl flex items-center justify-center shadow-md">
+          <div class="w-10 h-10 rounded-[var(--button-rounded-radius)] flex items-center justify-center" style="background:var(--accent-color)">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
           </div>
-          <div><div class="font-black text-navy text-sm leading-none">First Coast</div><div class="text-brand font-bold text-xs leading-none tracking-wide">CLEANING COMPANY</div></div>
+          <div>
+            <div class="font-black text-white text-sm leading-none uppercase tracking-tight">First Coast</div>
+            <div class="font-bold text-xs leading-none tracking-widest uppercase" style="color:var(--accent-color)">Cleaning Company</div>
+          </div>
         </a>
         <nav class="hidden lg:flex items-center gap-8">
-          <a href="index.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Home</a>
-          <a href="services.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Services</a>
-          <a href="checklist.html" class="text-sm font-semibold text-brand border-b-2 border-brand pb-0.5">Checklist</a>
-          <a href="reviews.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Reviews</a>
-          <a href="gallery.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Gallery</a>
-          <a href="contact.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Contact</a>
+          <a href="index.html#services" class="text-sm font-semibold text-gray-400 hover:text-white transition-colors">Services</a>
+          <a href="index.html#reviews" class="text-sm font-semibold text-gray-400 hover:text-white transition-colors">Reviews</a>
+          <a href="gallery.html" class="text-sm font-semibold text-gray-400 hover:text-white transition-colors">Gallery</a>
+          <a href="index.html#service-area" class="text-sm font-semibold text-gray-400 hover:text-white transition-colors">Service Area</a>
+          <a href="checklist.html" class="text-sm font-semibold text-white border-b-2 pb-0.5" style="border-color:var(--accent-color)">Checklist</a>
+          <a href="index.html#faq" class="text-sm font-semibold text-gray-400 hover:text-white transition-colors">FAQ</a>
         </nav>
         <div class="flex items-center gap-3">
-          <a href="tel:9046713215" class="hidden sm:flex items-center gap-2 text-sm font-bold text-navy hover:text-brand transition-colors"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>(904) 671-3215</a>
-          <a href="contact.html" class="px-5 py-2.5 bg-brand text-white text-sm font-bold rounded-xl hover:bg-brand-dark transition-all shadow-md">Free Quote</a>
-          <button id="menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+          <a href="tel:9046713215" class="hidden sm:flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors">
+            <svg class="w-4 h-4" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            (904) 671-3215
+          </a>
+          <a href="index.html#contact" class="px-5 py-2.5 text-white text-sm font-bold rounded-[var(--button-rounded-radius)]" style="background:var(--accent-color)">Get Free Estimate</a>
+          <button id="menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-800">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
         </div>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 pb-4">
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#0D0D0D] border-t border-gray-800 px-4 pb-4">
       <nav class="flex flex-col gap-1 pt-2">
-        <a href="index.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Home</a>
-        <a href="services.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Services</a>
-        <a href="checklist.html" class="px-3 py-2 text-sm font-semibold text-brand bg-brand-light rounded-lg">Checklist</a>
-        <a href="reviews.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Reviews</a>
-        <a href="gallery.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Gallery</a>
-        <a href="contact.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Contact</a>
+        <a href="index.html" class="px-3 py-2 text-sm font-semibold text-gray-400 hover:text-white rounded-lg">Home</a>
+        <a href="index.html#services" class="px-3 py-2 text-sm font-semibold text-gray-400 hover:text-white rounded-lg">Services</a>
+        <a href="checklist.html" class="px-3 py-2 text-sm font-semibold text-white bg-gray-800 rounded-lg">Checklist</a>
+        <a href="index.html#reviews" class="px-3 py-2 text-sm font-semibold text-gray-400 hover:text-white rounded-lg">Reviews</a>
+        <a href="gallery.html" class="px-3 py-2 text-sm font-semibold text-gray-400 hover:text-white rounded-lg">Gallery</a>
+        <a href="index.html#contact" class="mt-2 px-3 py-2.5 text-white text-sm font-bold rounded-[var(--button-rounded-radius)] text-center" style="background:var(--accent-color)">Get Free Estimate</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="pt-16 lg:pt-20 bg-gradient-to-br from-navy to-[#0c2340] py-20">
+  <section class="pt-16 lg:pt-20 bg-[#0D0D0D] py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-      <div class="inline-flex items-center gap-2 bg-brand/20 border border-brand/30 rounded-full px-4 py-2 mb-5">
-        <span class="text-brand text-sm font-semibold">Transparency First</span>
+      <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-5 border" style="background:rgba(14,165,233,0.1);border-color:rgba(14,165,233,0.3)">
+        <span class="text-sm font-semibold uppercase tracking-widest" style="color:var(--accent-color)">Transparency First</span>
       </div>
-      <h1 class="text-4xl lg:text-5xl font-black text-white mb-4">Cleaning Checklists</h1>
-      <p class="text-gray-300 text-lg max-w-2xl">We believe in complete transparency. Here's exactly what our team covers on every visit — and you can always request customizations.</p>
+      <h1 class="text-4xl lg:text-5xl font-black text-white mb-4 uppercase tracking-tight">Our Cleaning Checklists</h1>
+      <p class="text-gray-400 text-lg max-w-2xl">Here's exactly what our team covers on every visit. No surprises — just a spotless home, every single time.</p>
     </div>
   </section>
 
-  <!-- CHECKLISTS -->
-  <section class="py-20 lg:py-28 bg-white">
+  <!-- STANDARD CHECKLIST -->
+  <section class="py-20 lg:py-28 bg-[#1A1A1A]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-10 mb-16">
 
-        <!-- Standard Checklist -->
-        <div class="bg-gray-50 rounded-3xl p-10 border border-gray-100">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center">
-              <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-            </div>
-            <div>
-              <h2 class="text-2xl font-black text-navy">Standard Cleaning</h2>
-              <p class="text-gray-500 text-sm">Applies to all regular maid visits</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <div>
-              <h3 class="font-bold text-navy text-sm uppercase tracking-widest mb-3 text-brand">Kitchen</h3>
-              <ul class="space-y-2">
-                {['Clean & sanitize countertops','Clean stovetop & drip pans','Wipe down appliance exteriors','Clean microwave inside & out','Wipe cabinet fronts','Clean & sanitize sink','Empty & reline trash','Sweep & mop floors'].map(item=>`<li class="flex items-center gap-3 text-sm text-gray-600"><svg class="w-4 h-4 text-brand flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>${item}</li>`).join('')}
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-bold text-navy text-sm uppercase tracking-widest mb-3 text-brand">Bathrooms</h3>
-              <ul class="space-y-2">
-                {['Scrub & disinfect toilet','Clean & sanitize sink & vanity','Scrub shower & tub','Clean mirrors & glass','Wipe down all surfaces','Empty trash','Sweep & mop floors'].map(item=>`<li class="flex items-center gap-3 text-sm text-gray-600"><svg class="w-4 h-4 text-brand flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>${item}</li>`).join('')}
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-bold text-navy text-sm uppercase tracking-widest mb-3 text-brand">Bedrooms & Living Areas</h3>
-              <ul class="space-y-2">
-                {['Dust all surfaces & furniture','Vacuum carpets & rugs','Sweep & mop hard floors','Empty trash','Make beds & change linens','Wipe light switches & doorknobs','Clean glass surfaces & mirrors'].map(item=>`<li class="flex items-center gap-3 text-sm text-gray-600"><svg class="w-4 h-4 text-brand flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>${item}</li>`).join('')}
-              </ul>
-            </div>
-          </div>
-
-          <div class="mt-8 pt-6 border-t border-gray-200">
-            <p class="text-gray-500 text-sm italic mb-4">* Customized maid service is available upon request. Ask us about additional add-ons.</p>
-            <a href="//img1.wsimg.com/blobby/go/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/downloads/FCCC%20Standard%20Cleaning%20Checklist.pdf?ver=1715192182732" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-all text-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-              Download Full PDF Checklist
-            </a>
-          </div>
-        </div>
-
-        <!-- Move Out Checklist -->
-        <div class="bg-navy rounded-3xl p-10">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-14 h-14 bg-brand/20 rounded-2xl flex items-center justify-center">
-              <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-            </div>
-            <div>
-              <h2 class="text-2xl font-black text-white">Move-In & Move-Out</h2>
-              <p class="text-gray-400 text-sm">Deep clean for transitions</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <div>
-              <h3 class="font-bold text-brand text-sm uppercase tracking-widest mb-3">Everything in Standard, Plus:</h3>
-              <ul class="space-y-2">
-                {['Clean inside all cabinets & drawers','Clean inside oven','Clean inside refrigerator','Wipe down all baseboards','Clean inside windows','Wipe all doors & door frames','Clean garage (if applicable)','Deep scrub all tile & grout','Remove all cobwebs','Clean all light fixtures','Wipe blinds & window sills','Spot clean walls'].map(item=>`<li class="flex items-center gap-3 text-sm text-gray-400"><svg class="w-4 h-4 text-brand flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>${item}</li>`).join('')}
-              </ul>
-            </div>
-          </div>
-
-          <div class="mt-8 pt-6 border-t border-gray-700">
-            <p class="text-gray-500 text-sm italic mb-4">* Perfect for tenants wanting their deposit back or landlords prepping a property for new tenants.</p>
-            <a href="//img1.wsimg.com/blobby/go/9886aae0-ad4a-4dd4-8fb8-36443bbf775e/downloads/1boae39v0_926215.pdf?ver=1715192182763" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-all text-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-              Download Move-Out PDF
-            </a>
-          </div>
-        </div>
+      <div class="text-center mb-16">
+        <span class="text-sm font-bold uppercase tracking-widest" style="color:var(--accent-color)">Standard Service</span>
+        <h2 class="text-3xl lg:text-4xl font-black text-white mt-2 uppercase tracking-tight">FCCC Standard Cleaning Checklist</h2>
+        <p class="text-gray-400 mt-4 max-w-xl mx-auto">Applies to all regular maid visits. Customized cleaning is available upon request — just ask!</p>
       </div>
 
-      <!-- Customization note -->
-      <div class="bg-brand-light rounded-3xl p-10 text-center">
-        <svg class="w-12 h-12 text-brand mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-        <h3 class="text-2xl font-black text-navy mb-3">Want a Custom Checklist?</h3>
-        <p class="text-gray-500 max-w-xl mx-auto mb-6">Every home is different. We're happy to build a cleaning plan around exactly what you need — just ask when you call or submit a quote request.</p>
-        <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-3.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-all shadow-md">Request Custom Cleaning Plan</a>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Kitchen -->
+        <div class="bg-[#0D0D0D] border border-gray-800 rounded p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(14,165,233,0.1)">
+              <svg class="w-6 h-6" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="text-xl font-black text-white uppercase tracking-tight">Kitchen</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean & sanitize all countertops</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean stovetop & drip pans</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Wipe down exterior of all appliances</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean microwave inside & out</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Wipe down cabinet fronts & handles</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean & sanitize kitchen sink</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Empty & reline trash can</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Sweep & mop floors</li>
+          </ul>
+        </div>
+
+        <!-- Bathrooms -->
+        <div class="bg-[#0D0D0D] border border-gray-800 rounded p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(14,165,233,0.1)">
+              <svg class="w-6 h-6" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+            </div>
+            <h3 class="text-xl font-black text-white uppercase tracking-tight">Bathrooms</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Scrub & disinfect toilet inside and out</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean & sanitize sink and vanity</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Scrub shower & tub</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean all mirrors & glass</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Wipe down all surfaces & fixtures</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean shower door & tracks</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Empty trash & replace liner</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Sweep & mop floors</li>
+          </ul>
+        </div>
+
+        <!-- Bedrooms -->
+        <div class="bg-[#0D0D0D] border border-gray-800 rounded p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(14,165,233,0.1)">
+              <svg class="w-6 h-6" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </div>
+            <h3 class="text-xl font-black text-white uppercase tracking-tight">Bedrooms</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Dust all surfaces & furniture</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Make beds & change linens (if provided)</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Vacuum carpets & rugs</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Sweep & mop hard floors</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Empty trash</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Wipe light switches & doorknobs</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean mirrors & glass surfaces</li>
+          </ul>
+        </div>
+
+        <!-- Living Areas -->
+        <div class="bg-[#0D0D0D] border border-gray-800 rounded p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(14,165,233,0.1)">
+              <svg class="w-6 h-6" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12V22H4V12M22 7H2l2-5h16l2 5zM12 22V7"/></svg>
+            </div>
+            <h3 class="text-xl font-black text-white uppercase tracking-tight">Living Areas</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Dust all furniture & surfaces</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Vacuum sofas, chairs & cushions</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Vacuum carpets & area rugs</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Sweep & mop hard floors</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Wipe down light switches & outlets</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean glass surfaces & mirrors</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Empty trash cans</li>
+          </ul>
+        </div>
+
+        <!-- General / Whole Home -->
+        <div class="bg-[#0D0D0D] border border-gray-800 rounded p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(14,165,233,0.1)">
+              <svg class="w-6 h-6" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3 class="text-xl font-black text-white uppercase tracking-tight">Whole Home</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Dust ceiling fans & light fixtures</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Remove cobwebs throughout</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Wipe down all door frames & doors</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean all interior windows & sills</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Wipe blinds & window sills</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>All trash emptied & relined</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Final walkthrough & quality check</li>
+          </ul>
+        </div>
+
+        <!-- Add-ons / Custom -->
+        <div class="bg-[#0A0A0A] border rounded p-8" style="border-color:rgba(14,165,233,0.3)">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(14,165,233,0.15)">
+              <svg class="w-6 h-6" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </div>
+            <h3 class="text-xl font-black text-white uppercase tracking-tight">Add-Ons Available</h3>
+          </div>
+          <p class="text-gray-400 text-sm mb-4">Ask about these additional services when you book:</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Inside oven cleaning</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Inside refrigerator cleaning</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Inside cabinet & drawer cleaning</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Window cleaning (inside & outside)</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Green / eco-friendly product upgrade</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Laundry wash & fold</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MOVE OUT CHECKLIST -->
+  <section class="py-20 lg:py-28 bg-[#0D0D0D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16">
+        <span class="text-sm font-bold uppercase tracking-widest" style="color:var(--accent-color)">Deep Clean</span>
+        <h2 class="text-3xl lg:text-4xl font-black text-white mt-2 uppercase tracking-tight">Move-In & Move-Out Checklist</h2>
+        <p class="text-gray-400 mt-4 max-w-xl mx-auto">Everything in the Standard Checklist PLUS these additional deep-clean items. Perfect for tenants wanting their deposit back — or landlords prepping for new tenants.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="bg-[#1A1A1A] border border-gray-800 rounded p-8">
+          <h3 class="text-lg font-black text-white mb-5 uppercase tracking-tight" style="color:var(--accent-color)">Kitchen Deep Clean</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean inside all cabinets & drawers</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Deep clean inside oven</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean inside refrigerator & freezer</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Degrease range hood & filter</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean inside dishwasher</li>
+          </ul>
+        </div>
+
+        <div class="bg-[#1A1A1A] border border-gray-800 rounded p-8">
+          <h3 class="text-lg font-black mb-5 uppercase tracking-tight" style="color:var(--accent-color)">Bathrooms Deep Clean</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Deep scrub all tile & grout</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Remove soap scum & hard water stains</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean inside vanity drawers & cabinets</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean exhaust fans</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Scrub caulk lines</li>
+          </ul>
+        </div>
+
+        <div class="bg-[#1A1A1A] border border-gray-800 rounded p-8">
+          <h3 class="text-lg font-black mb-5 uppercase tracking-tight" style="color:var(--accent-color)">Whole Home Extras</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Wipe all baseboards throughout</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean inside all windows + tracks</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Wipe all doors & door frames</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Spot clean walls & scuff marks</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean all light fixtures & switch plates</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Clean garage (if applicable)</li>
+            <li class="flex items-start gap-3 text-sm text-gray-400"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Remove all cobwebs in every room</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Custom note -->
+      <div class="mt-10 bg-[#1A1A1A] border rounded p-8 text-center" style="border-color:rgba(14,165,233,0.2)">
+        <svg class="w-10 h-10 mx-auto mb-4" style="color:var(--accent-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+        <h3 class="text-2xl font-black text-white mb-3 uppercase tracking-tight">Want a Custom Checklist?</h3>
+        <p class="text-gray-400 max-w-xl mx-auto mb-6">Every home is different. We'll build a cleaning plan around exactly what you need — just let us know when you call or submit a quote request.</p>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 px-7 py-3.5 text-white font-black rounded-[var(--button-rounded-radius)] uppercase tracking-wide" style="background:var(--accent-color)">Request Custom Plan</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-[#0A0A0A] border-t border-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl lg:text-4xl font-black text-white mb-4 uppercase tracking-tight">Ready for a Spotless Home?</h2>
+      <p class="text-gray-400 text-lg mb-8">Get a free quote today. No contracts, no commitments — just results you'll love.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="index.html#contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-white font-black rounded-[var(--button-rounded-radius)] uppercase tracking-wide text-lg" style="background:var(--accent-color)">Get My Free Quote</a>
+        <a href="tel:9046713215" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-gray-700 text-white font-bold rounded-[var(--button-rounded-radius)] hover:bg-white/20 transition-all text-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (904) 671-3215
+        </a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-navy text-white py-12">
+  <footer class="bg-[#0A0A0A] border-t border-gray-800 py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-3 gap-8 mb-8">
-        <div><div class="font-black text-white mb-2">First Coast Cleaning Company</div><p class="text-gray-400 text-sm">Licensed · Bonded · Insured<br>100% Satisfaction Guaranteed</p></div>
-        <div><h4 class="font-bold text-white mb-3">Quick Links</h4><ul class="space-y-1 text-sm"><li><a href="index.html" class="text-gray-400 hover:text-brand transition-colors">Home</a></li><li><a href="services.html" class="text-gray-400 hover:text-brand transition-colors">Services</a></li><li><a href="checklist.html" class="text-gray-400 hover:text-brand transition-colors">Checklist</a></li><li><a href="reviews.html" class="text-gray-400 hover:text-brand transition-colors">Reviews</a></li><li><a href="gallery.html" class="text-gray-400 hover:text-brand transition-colors">Gallery</a></li><li><a href="contact.html" class="text-gray-400 hover:text-brand transition-colors">Contact</a></li></ul></div>
-        <div><h4 class="font-bold text-white mb-3">Contact</h4><p class="text-gray-400 text-sm">1093 A1A Beach Blvd #511<br>Saint Augustine, FL 32080</p><a href="tel:9046713215" class="text-brand font-bold text-sm mt-2 block">(904) 671-3215</a><p class="text-gray-500 text-xs mt-2">Mon–Sat: 9am–5pm · Sun: By Appt</p></div>
+        <div><div class="font-black text-white mb-2 uppercase tracking-tight">First Coast Cleaning Company</div><p class="text-gray-500 text-sm">Licensed · Bonded · Insured<br>100% Satisfaction Guaranteed</p></div>
+        <div><h4 class="font-black text-white mb-3 uppercase tracking-widest text-sm">Quick Links</h4><ul class="space-y-1 text-sm"><li><a href="index.html" class="text-gray-500 hover:text-white transition-colors">Home</a></li><li><a href="index.html#services" class="text-gray-500 hover:text-white transition-colors">Services</a></li><li><a href="checklist.html" class="text-gray-500 hover:text-white transition-colors">Checklist</a></li><li><a href="index.html#reviews" class="text-gray-500 hover:text-white transition-colors">Reviews</a></li><li><a href="gallery.html" class="text-gray-500 hover:text-white transition-colors">Gallery</a></li><li><a href="index.html#contact" class="text-gray-500 hover:text-white transition-colors">Contact</a></li></ul></div>
+        <div><h4 class="font-black text-white mb-3 uppercase tracking-widest text-sm">Contact</h4><p class="text-gray-500 text-sm">1093 A1A Beach Blvd #511<br>Saint Augustine, FL 32080</p><a href="tel:9046713215" class="font-bold text-sm mt-2 block" style="color:var(--accent-color)">(904) 671-3215</a><p class="text-gray-600 text-xs mt-2">Mon–Sat: 9am–5pm · Sun: By Appt</p></div>
       </div>
-      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">© 2026 First Coast Cleaning Company. All rights reserved.</div>
+      <div class="border-t border-gray-800 pt-6 text-center text-gray-600 text-sm">© 2026 First Coast Cleaning Company. All rights reserved.</div>
     </div>
   </footer>
   <script>document.getElementById('menu-btn').addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('hidden'));</script>
