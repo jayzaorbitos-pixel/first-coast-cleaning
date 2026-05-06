@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery | First Coast Cleaning Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{brand:{DEFAULT:'#0EA5E9',dark:'#0284C7',light:'#E0F2FE'},navy:{DEFAULT:'#0F172A'}},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+  <style>
+    html{scroll-behavior:smooth;}
+    .gallery-item { cursor: pointer; overflow: hidden; border-radius: 16px; }
+    .gallery-item img { transition: transform 0.4s ease; width: 100%; height: 100%; object-fit: cover; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 1000; align-items: center; justify-content: center; }
+    .lightbox.active { display: flex; }
+  </style>
+</head>
+<body class="font-sans text-navy antialiased">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-brand rounded-xl flex items-center justify-center shadow-md">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <div><div class="font-black text-navy text-sm leading-none">First Coast</div><div class="text-brand font-bold text-xs leading-none tracking-wide">CLEANING COMPANY</div></div>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="index.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Home</a>
+          <a href="services.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Services</a>
+          <a href="checklist.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Checklist</a>
+          <a href="reviews.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Reviews</a>
+          <a href="gallery.html" class="text-sm font-semibold text-brand border-b-2 border-brand pb-0.5">Gallery</a>
+          <a href="contact.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="tel:9046713215" class="hidden sm:flex items-center gap-2 text-sm font-bold text-navy hover:text-brand transition-colors"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>(904) 671-3215</a>
+          <a href="contact.html" class="px-5 py-2.5 bg-brand text-white text-sm font-bold rounded-xl hover:bg-brand-dark transition-all shadow-md">Free Quote</a>
+          <button id="menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 pb-4">
+      <nav class="flex flex-col gap-1 pt-2">
+        <a href="index.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Home</a>
+        <a href="services.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Services</a>
+        <a href="checklist.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Checklist</a>
+        <a href="reviews.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Reviews</a>
+        <a href="gallery.html" class="px-3 py-2 text-sm font-semibold text-brand bg-brand-light rounded-lg">Gallery</a>
+        <a href="contact.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="pt-16 lg:pt-20 bg-gradient-to-br from-navy to-[#0c2340] py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+      <div class="inline-flex items-center gap-2 bg-brand/20 border border-brand/30 rounded-full px-4 py-2 mb-5">
+        <span class="text-brand text-sm font-semibold">See Our Work</span>
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-black text-white mb-4">Photo Gallery</h1>
+      <p class="text-gray-300 text-lg max-w-2xl">Real results from real homes and businesses across St. Augustine and Jacksonville. The proof is in the clean.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY GRID -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Filter tabs -->
+      <div class="flex flex-wrap gap-3 mb-12 justify-center">
+        <button onclick="filterGallery('all')" class="filter-btn active px-5 py-2.5 rounded-full text-sm font-bold bg-brand text-white" data-filter="all">All</button>
+        <button onclick="filterGallery('kitchen')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-gray-100 text-gray-600 hover:bg-brand-light hover:text-brand transition-all" data-filter="kitchen">Kitchen</button>
+        <button onclick="filterGallery('bathroom')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-gray-100 text-gray-600 hover:bg-brand-light hover:text-brand transition-all" data-filter="bathroom">Bathroom</button>
+        <button onclick="filterGallery('living')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-gray-100 text-gray-600 hover:bg-brand-light hover:text-brand transition-all" data-filter="living">Living Areas</button>
+        <button onclick="filterGallery('commercial')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-gray-100 text-gray-600 hover:bg-brand-light hover:text-brand transition-all" data-filter="commercial">Commercial</button>
+      </div>
+
+      <!-- Masonry-style grid using placeholder images (swap with real photos) -->
+      <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">
+
+        <div class="gallery-item col-span-2 row-span-2" data-category="kitchen" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Sparkling clean kitchen after professional cleaning">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white font-bold text-sm">Kitchen Deep Clean</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="bathroom" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Clean bathroom after maid service">
+        </div>
+
+        <div class="gallery-item" data-category="living" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Clean living room">
+        </div>
+
+        <div class="gallery-item row-span-2" data-category="bathroom" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&q=80" alt="Bathroom tile scrub">
+        </div>
+
+        <div class="gallery-item" data-category="kitchen" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80&crop=right" alt="Clean stovetop">
+        </div>
+
+        <div class="gallery-item col-span-2" data-category="commercial" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Clean commercial office space">
+        </div>
+
+        <div class="gallery-item" data-category="living" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="Clean bedroom">
+        </div>
+
+        <div class="gallery-item" data-category="kitchen" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=80" alt="Clean kitchen counters">
+        </div>
+
+        <div class="gallery-item col-span-2" data-category="living" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&q=80" alt="Clean bright living room">
+        </div>
+
+        <div class="gallery-item" data-category="bathroom" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80" alt="Sparkling bathroom sink">
+        </div>
+
+        <div class="gallery-item" data-category="commercial" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80" alt="Clean office area">
+        </div>
+
+      </div>
+
+      <p class="text-center text-gray-400 text-sm mt-8">* Photos representative of the quality of work delivered. Contact us to see more.</p>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-brand transition-colors">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" class="max-w-5xl max-h-[85vh] object-contain rounded-2xl shadow-2xl" onclick="event.stopPropagation()">
+  </div>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">Like What You See?</h2>
+      <p class="text-blue-100 text-lg mb-8">We can make your home or office look just as good — guaranteed.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand font-black rounded-xl hover:bg-gray-100 transition-all shadow-lg text-lg">Get My Free Quote</a>
+        <a href="tel:9046713215" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-dark text-white font-bold rounded-xl hover:bg-navy transition-all text-lg">Call (904) 671-3215</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div><div class="font-black text-white mb-2">First Coast Cleaning Company</div><p class="text-gray-400 text-sm">Licensed · Bonded · Insured<br>100% Satisfaction Guaranteed</p></div>
+        <div><h4 class="font-bold text-white mb-3">Quick Links</h4><ul class="space-y-1 text-sm"><li><a href="index.html" class="text-gray-400 hover:text-brand transition-colors">Home</a></li><li><a href="services.html" class="text-gray-400 hover:text-brand transition-colors">Services</a></li><li><a href="checklist.html" class="text-gray-400 hover:text-brand transition-colors">Checklist</a></li><li><a href="reviews.html" class="text-gray-400 hover:text-brand transition-colors">Reviews</a></li><li><a href="gallery.html" class="text-gray-400 hover:text-brand transition-colors">Gallery</a></li><li><a href="contact.html" class="text-gray-400 hover:text-brand transition-colors">Contact</a></li></ul></div>
+        <div><h4 class="font-bold text-white mb-3">Contact</h4><p class="text-gray-400 text-sm">1093 A1A Beach Blvd #511<br>Saint Augustine, FL 32080</p><a href="tel:9046713215" class="text-brand font-bold text-sm mt-2 block">(904) 671-3215</a><p class="text-gray-500 text-xs mt-2">Mon–Sat: 9am–5pm · Sun: By Appt</p></div>
+      </div>
+      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">© 2026 First Coast Cleaning Company. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('hidden'));
+
+    function filterGallery(cat) {
+      const items = document.querySelectorAll('.gallery-item');
+      const btns = document.querySelectorAll('.filter-btn');
+      btns.forEach(b => { b.classList.remove('bg-brand','text-white'); b.classList.add('bg-gray-100','text-gray-600'); });
+      event.target.classList.add('bg-brand','text-white');
+      event.target.classList.remove('bg-gray-100','text-gray-600');
+      items.forEach(item => {
+        if (cat === 'all' || item.dataset.category === cat) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-img').alt = img.alt;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>

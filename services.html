@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | First Coast Cleaning Company</title>
+  <meta name="description" content="Residential, move-in/out, commercial, window, and green cleaning services in St. Augustine and Jacksonville, FL.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#0EA5E9', dark: '#0284C7', light: '#E0F2FE' },
+            navy: { DEFAULT: '#0F172A', soft: '#1E293B' }
+          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>html { scroll-behavior: smooth; } .card-hover { transition: all 0.3s ease; } .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(14,165,233,0.15); }</style>
+</head>
+<body class="font-sans text-navy antialiased">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-brand rounded-xl flex items-center justify-center shadow-md">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <div>
+            <div class="font-black text-navy text-sm leading-none">First Coast</div>
+            <div class="text-brand font-bold text-xs leading-none tracking-wide">CLEANING COMPANY</div>
+          </div>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="index.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Home</a>
+          <a href="services.html" class="text-sm font-semibold text-brand border-b-2 border-brand pb-0.5">Services</a>
+          <a href="checklist.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Checklist</a>
+          <a href="reviews.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Reviews</a>
+          <a href="gallery.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Gallery</a>
+          <a href="contact.html" class="text-sm font-semibold text-gray-500 hover:text-brand transition-colors">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="tel:9046713215" class="hidden sm:flex items-center gap-2 text-sm font-bold text-navy hover:text-brand transition-colors">
+            <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            (904) 671-3215
+          </a>
+          <a href="contact.html" class="px-5 py-2.5 bg-brand text-white text-sm font-bold rounded-xl hover:bg-brand-dark transition-all shadow-md">Free Quote</a>
+          <button id="menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 pb-4">
+      <nav class="flex flex-col gap-1 pt-2">
+        <a href="index.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Home</a>
+        <a href="services.html" class="px-3 py-2 text-sm font-semibold text-brand bg-brand-light rounded-lg">Services</a>
+        <a href="checklist.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Checklist</a>
+        <a href="reviews.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Reviews</a>
+        <a href="gallery.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Gallery</a>
+        <a href="contact.html" class="px-3 py-2 text-sm font-semibold text-navy hover:text-brand hover:bg-brand-light rounded-lg">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="pt-16 lg:pt-20 bg-gradient-to-br from-navy to-[#0c2340] py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+      <div class="inline-flex items-center gap-2 bg-brand/20 border border-brand/30 rounded-full px-4 py-2 mb-5">
+        <span class="text-brand text-sm font-semibold">What We Offer</span>
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-black text-white mb-4">Our Cleaning Services</h1>
+      <p class="text-gray-300 text-lg max-w-2xl">Every service is customized to your specific needs — no contracts, no commitments. Just a cleaner space and a 100% satisfaction guarantee.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES DETAIL -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+
+      <!-- Residential -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="w-16 h-16 bg-brand-light rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <h2 class="text-3xl font-black text-navy mb-4">Residential Cleaning</h2>
+          <p class="text-gray-500 text-lg leading-relaxed mb-6">Our house cleaning services are designed around your specific needs and expectations. We offer weekly, bi-weekly, and monthly maid services — and scheduling is completely flexible with no long-term contracts required.</p>
+          <p class="text-gray-500 leading-relaxed mb-6">We take pride in our residential cleaning service and look forward to helping you maintain a spotlessly clean home. Whether you need a standard clean or want to customize what gets done on each visit, we'll make it work for you.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Weekly, bi-weekly & monthly scheduling</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Fully customizable to your preferences</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">No contracts or long-term commitments</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">100% satisfaction guaranteed</span></li>
+          </ul>
+          <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-3.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-all shadow-md">Get a Free Quote</a>
+        </div>
+        <div class="bg-brand-light rounded-3xl p-10 flex items-center justify-center min-h-64">
+          <div class="text-center">
+            <div class="w-24 h-24 bg-brand/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-12 h-12 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </div>
+            <p class="text-brand font-bold text-lg">Residential Cleaning</p>
+            <p class="text-gray-500 text-sm mt-1">Homes, Condos & Apartments</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-gray-100">
+
+      <!-- Move In/Out -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 bg-navy rounded-3xl p-10 flex items-center justify-center min-h-64">
+          <div class="text-center">
+            <div class="w-24 h-24 bg-brand/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-12 h-12 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            </div>
+            <p class="text-white font-bold text-lg">Move-In & Move-Out</p>
+            <p class="text-gray-400 text-sm mt-1">Residential & Rental Properties</p>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="w-16 h-16 bg-brand-light rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </div>
+          <h2 class="text-3xl font-black text-navy mb-4">Move-In & Move-Out Cleaning</h2>
+          <p class="text-gray-500 text-lg leading-relaxed mb-4">Whether you're moving into a new living space or moving out of one, our cleaning service can be tailored to meet your exact needs. We'll transform the space into a clean, comfortable environment.</p>
+          <p class="text-gray-500 leading-relaxed mb-6">Landlords and property managers are also welcome — we offer service agreements for monthly turnover cleanings, making it easy to keep your properties guest-ready at all times.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Deep clean before or after your move</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Monthly turnover agreements for landlords</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Tailored to rental & property standards</span></li>
+          </ul>
+          <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-3.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-all shadow-md">Get a Free Quote</a>
+        </div>
+      </div>
+
+      <hr class="border-gray-100">
+
+      <!-- Commercial -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="w-16 h-16 bg-brand-light rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h2 class="text-3xl font-black text-navy mb-4">Commercial Office Cleaning</h2>
+          <p class="text-gray-500 text-lg leading-relaxed mb-4">First Coast Cleaning Company provides reliable commercial cleaning services for offices, schools, and workplaces. We also offer house cleaning services for those who work from a home office.</p>
+          <p class="text-gray-500 leading-relaxed mb-6">Services are fully customized to each client's needs with annual, semi-annual, and month-to-month terms available. As with all of our services, 100% client satisfaction is guaranteed.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Offices, schools & workplaces</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Annual, semi-annual & month-to-month terms</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Customized service plans per client</span></li>
+          </ul>
+          <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-3.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-all shadow-md">Get a Free Quote</a>
+        </div>
+        <div class="bg-brand-light rounded-3xl p-10 flex items-center justify-center min-h-64">
+          <div class="text-center">
+            <div class="w-24 h-24 bg-brand/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-12 h-12 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <p class="text-brand font-bold text-lg">Commercial Cleaning</p>
+            <p class="text-gray-500 text-sm mt-1">Offices, Schools & Workplaces</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-gray-100">
+
+      <!-- Window Cleaning -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 bg-navy rounded-3xl p-10 flex items-center justify-center min-h-64">
+          <div class="text-center">
+            <div class="w-24 h-24 bg-brand/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-12 h-12 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
+            </div>
+            <p class="text-white font-bold text-lg">Window Cleaning</p>
+            <p class="text-gray-400 text-sm mt-1">Inside, Outside, Screens & Tracks</p>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="w-16 h-16 bg-brand-light rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
+          </div>
+          <h2 class="text-3xl font-black text-navy mb-4">Window Cleaning</h2>
+          <p class="text-gray-500 text-lg leading-relaxed mb-4">Professional window cleaning is available upon request. We wash the inside and outside of all windows in your home and include the screens and tracks as well.</p>
+          <p class="text-gray-500 leading-relaxed mb-6">Many clients enjoy a sparkling clean home and crystal clear windows all in the same visit — it's a nice finishing touch. We can offer you a quote right over the phone!</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Interior & exterior window washing</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Screens and tracks included</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-brand rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Can be combined with maid service</span></li>
+          </ul>
+          <a href="tel:9046713215" class="inline-flex items-center gap-2 px-7 py-3.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-all shadow-md">Call for a Quote</a>
+        </div>
+      </div>
+
+      <hr class="border-gray-100">
+
+      <!-- Green Cleaning -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <h2 class="text-3xl font-black text-navy mb-4">Green Cleaning Service</h2>
+          <p class="text-gray-500 text-lg leading-relaxed mb-4">We offer GREEN CLEANING SERVICES for residential cleaning upon request. We have access to many organic and eco-friendly supplies that are safe for your family, your pets, and the environment.</p>
+          <p class="text-gray-500 leading-relaxed mb-6">If a green clean is the maid service you're looking for, please let us know in advance and we will be happy to accommodate. All services are customized to your specific needs.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Organic & eco-friendly products</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Safe for children, pets & allergies</span></li>
+            <li class="flex items-center gap-3"><div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-gray-600">Request in advance — we'll accommodate</span></li>
+          </ul>
+          <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-3.5 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-all shadow-md">Request Green Clean</a>
+        </div>
+        <div class="bg-green-50 rounded-3xl p-10 flex items-center justify-center min-h-64">
+          <div class="text-center">
+            <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
+            <p class="text-green-600 font-bold text-lg">Eco-Friendly Cleaning</p>
+            <p class="text-gray-500 text-sm mt-1">Organic Products Upon Request</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">Not Sure Which Service You Need?</h2>
+      <p class="text-blue-100 text-lg mb-8">Call us and we'll figure it out together. Free quotes, no pressure.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand font-black rounded-xl hover:bg-gray-100 transition-all shadow-lg text-lg">Get My Free Quote</a>
+        <a href="tel:9046713215" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-dark text-white font-bold rounded-xl hover:bg-navy transition-all text-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (904) 671-3215
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="font-black text-white mb-2">First Coast Cleaning Company</div>
+          <p class="text-gray-400 text-sm">Licensed · Bonded · Insured<br>100% Satisfaction Guaranteed</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-3">Quick Links</h4>
+          <ul class="space-y-1 text-sm">
+            <li><a href="index.html" class="text-gray-400 hover:text-brand transition-colors">Home</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-brand transition-colors">Services</a></li>
+            <li><a href="checklist.html" class="text-gray-400 hover:text-brand transition-colors">Checklist</a></li>
+            <li><a href="reviews.html" class="text-gray-400 hover:text-brand transition-colors">Reviews</a></li>
+            <li><a href="gallery.html" class="text-gray-400 hover:text-brand transition-colors">Gallery</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-brand transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-3">Contact</h4>
+          <p class="text-gray-400 text-sm">1093 A1A Beach Blvd #511<br>Saint Augustine, FL 32080</p>
+          <a href="tel:9046713215" class="text-brand font-bold text-sm mt-2 block">(904) 671-3215</a>
+          <p class="text-gray-500 text-xs mt-2">Mon–Sat: 9am–5pm · Sun: By Appt</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">© 2026 First Coast Cleaning Company. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('menu-btn').addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('hidden'));</script>
+</body>
+</html>
