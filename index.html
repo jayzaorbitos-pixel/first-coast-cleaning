@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>First Coast Cleaning Company | Maid & House Cleaning St. Augustine & Jacksonville FL</title>
+  <link rel="icon" type="image/png" href="/logo.png">
   <meta name="description" content="Professional maid and house cleaning services in St. Augustine and Jacksonville, FL. Licensed, bonded, insured. 100% satisfaction guaranteed. No contracts. Call (904) 671-3215.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,13 +29,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 lg:h-20">
         <a href="index.html" class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-[var(--button-rounded-radius)] flex items-center justify-center" style="background:var(--accent-color)">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-          </div>
-          <div>
-            <div class="font-black text-white text-sm leading-none uppercase tracking-tight">First Coast</div>
-            <div class="font-bold text-xs leading-none tracking-widest uppercase" style="color:var(--accent-color)">Cleaning Company</div>
-          </div>
+          <img src="/logo.png" alt="First Coast Cleaning Company" class="h-12 w-auto">
         </a>
 
         <nav class="hidden lg:flex items-center gap-8">
@@ -385,18 +380,21 @@
           <p class="text-gray-400 text-lg leading-relaxed mb-8">From our home base in St. Augustine, we provide maid and house cleaning services throughout the greater Jacksonville area. No job is too far — we come to you.</p>
 
           <div class="grid grid-cols-2 gap-3 mb-8">
-            {['St. Augustine','Jacksonville','St. Johns','Ponte Vedra','Neptune Beach','Atlantic Beach','Palm Coast','Orange Park'].map(city=>`
-            <div class="flex items-center gap-2 bg-[#0D0D0D] border border-gray-800 rounded px-4 py-3">
-              <svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-              <span class="text-gray-300 text-sm font-semibold">${city}</span>
-            </div>`).join('')}
+            <div class="flex items-center gap-2 bg-[#0D0D0D] border border-gray-800 rounded px-4 py-3"><svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span class="text-gray-300 text-sm font-semibold">St. Augustine</span></div>
+            <div class="flex items-center gap-2 bg-[#0D0D0D] border border-gray-800 rounded px-4 py-3"><svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span class="text-gray-300 text-sm font-semibold">Jacksonville</span></div>
+            <div class="flex items-center gap-2 bg-[#0D0D0D] border border-gray-800 rounded px-4 py-3"><svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span class="text-gray-300 text-sm font-semibold">St. Johns</span></div>
+            <div class="flex items-center gap-2 bg-[#0D0D0D] border border-gray-800 rounded px-4 py-3"><svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span class="text-gray-300 text-sm font-semibold">Ponte Vedra</span></div>
+            <div class="flex items-center gap-2 bg-[#0D0D0D] border border-gray-800 rounded px-4 py-3"><svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span class="text-gray-300 text-sm font-semibold">Neptune Beach</span></div>
+            <div class="flex items-center gap-2 bg-[#0D0D0D] border border-gray-800 rounded px-4 py-3"><svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span class="text-gray-300 text-sm font-semibold">Atlantic Beach</span></div>
+            <div class="flex items-center gap-2 bg-[#0D0D0D] border border-gray-800 rounded px-4 py-3"><svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span class="text-gray-300 text-sm font-semibold">Palm Coast</span></div>
+            <div class="flex items-center gap-2 bg-[#0D0D0D] border border-gray-800 rounded px-4 py-3"><svg class="w-4 h-4 flex-shrink-0" style="color:var(--accent-color)" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span class="text-gray-300 text-sm font-semibold">Orange Park</span></div>
           </div>
 
           <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 text-white font-black rounded-[var(--button-rounded-radius)] uppercase tracking-wide" style="background:var(--accent-color)">Get a Free Quote in Your Area</a>
         </div>
 
         <div class="rounded overflow-hidden border border-gray-800" style="height:420px">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d223894.28748368673!2d-81.82945204999999!3d29.951065799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e6fc5b14e013d9%3A0x44c14bb3a8828a44!2sSt.%20Augustine%2C%20FL!5e0!3m2!1sen!2sus!4v1699900000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;filter:invert(90%) hue-rotate(180deg)" allowfullscreen="" loading="lazy"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d350000!2d-81.55!3d30.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1699900000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;filter:invert(90%) hue-rotate(180deg)" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
     </div>
